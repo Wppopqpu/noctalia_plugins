@@ -15,10 +15,23 @@ DraggableDesktopWidget {
 
     showBackground: true
 
-    readonly property bool isRotating: root.pluginApi?.mainInstance?.isRotating ?? false
-    readonly property real cpuUsage: root.pluginApi?.mainInstance?.cpuUsage ?? 0
+    readonly property bool isRotating: pluginApi?.mainInstance?.isRotating ?? false
+    readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
 
-    property url currentGifSource: Qt.resolvedUrl("assets/fumo.gif")
+    property int currentFrame: 0
+    readonly property int totalFrames: 216
+
+    Timer {
+        id: animationTimer
+        interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) : 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            if (root.isRotating) {
+                root.currentFrame = (root.currentFrame + 1) % root.totalFrames
+            }
+        }
+    }
 
     RowLayout {
         anchors.fill: parent
@@ -26,7 +39,7 @@ DraggableDesktopWidget {
 
         AnimatedImage {
             id: fumoImage
-            source: root.currentGifSource
+            source: Qt.resolvedUrl("assets/fumo.gif")
             Layout.fillHeight: true
             Layout.preferredWidth: height
 
@@ -36,7 +49,7 @@ DraggableDesktopWidget {
             fillMode: Image.PreserveAspectFit
             smooth: true
             mipmap: false
-            paused: !root.isRotating
+            currentFrame: root.currentFrame
         }
 
         Text {

@@ -52,7 +52,23 @@ Item {
     implicitWidth: contentWidth
     implicitHeight: contentHeight
 
-    readonly property bool isRotating: root.pluginApi?.mainInstance?.isRotating ?? false
+    readonly property bool isRotating: pluginApi?.mainInstance?.isRotating ?? false
+    readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
+
+    property int currentFrame: 0
+    readonly property int totalFrames: 216
+
+    Timer {
+        id: animationTimer
+        interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) : 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            if (root.isRotating) {
+                root.currentFrame = (root.currentFrame + 1) % root.totalFrames
+            }
+        }
+    }
 
     function openPanel() {
         if (pluginApi) {
@@ -92,7 +108,7 @@ Item {
             fillMode: Image.PreserveAspectFit
             smooth: true
             mipmap: false
-            paused: !root.isRotating
+            currentFrame: root.currentFrame
         }
     }
 

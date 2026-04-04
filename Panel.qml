@@ -15,6 +15,24 @@ Item {
 
     anchors.fill: parent
 
+    readonly property bool isRotating: pluginApi?.mainInstance?.isRotating ?? false
+    readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
+
+    property int currentFrame: 0
+    readonly property int totalFrames: 216
+
+    Timer {
+        id: animationTimer
+        interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) : 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            if (root.isRotating) {
+                root.currentFrame = (root.currentFrame + 1) % root.totalFrames
+            }
+        }
+    }
+
     Rectangle {
         id: panelContainer
         anchors.fill: parent
@@ -38,8 +56,6 @@ Item {
                     Layout.preferredHeight: 128 * Style.uiScaleRatio
                     Layout.alignment: Qt.AlignHCenter
 
-                    readonly property bool isRotating: root.pluginApi?.mainInstance?.isRotating ?? false
-
                     AnimatedImage {
                         id: bigFumoImage
                         anchors.fill: parent
@@ -47,13 +63,13 @@ Item {
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                         mipmap: true
-                        paused: !bigFumoItem.isRotating
+                        currentFrame: root.currentFrame
                     }
                 }
 
                 Text {
                     Layout.alignment: Qt.AlignHCenter
-                    text: "CPU: " + Math.round(root.pluginApi?.mainInstance?.cpuUsage ?? 0) + "%"
+                    text: "CPU: " + Math.round(root.cpuUsage) + "%"
                     font.pointSize: Style.fontSizeXL
                     font.weight: Font.Bold
                     color: Settings.data.colorSchemes.darkMode ? "white" : "black"
