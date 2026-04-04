@@ -1,9 +1,9 @@
 {
   "panel": {
-    "title": "Fumo Rotate"
+    "title": "⑨Rotate"
   },
   "tooltip": {
-    "idle": "Fumo is idle",
-    "rotating": "Fumo is rotating"
+    "idle": "⑨ is idle",
+    "rotating": "⑨ is rotating"
   }
 }
