@@ -10,17 +10,7 @@ ColumnLayout {
 
     spacing: Style.marginM
 
-    Text {
-        text: "Fumo Rotate"
-        font.bold: true
-        font.pointSize: 16
-    }
-
-    Text {
-        text: "CPU Threshold: 10%"
-    }
-
-    Text {
-        text: "GIF: assets/fumo.gif"
+    NLabel {
+        label: "Fumo Rotate"
     }
 }

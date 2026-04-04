@@ -17,10 +17,5 @@
   },
   "dependencies": {
     "plugins": []
-  },
-  "metadata": {
-    "defaultSettings": {
-      "minimumThreshold": 10
-    }
   }
 }
