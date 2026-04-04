@@ -11,6 +11,6 @@ ColumnLayout {
     spacing: Style.marginM
 
     NLabel {
-        label: "Fumo Rotate"
+        label: pluginApi.tr("panel.title")
     }
 }
