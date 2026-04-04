@@ -1,0 +1,27 @@
+{
+  "id": "fumo_rotate",
+  "name": "Fumo Rotate",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "MannuVilasara",
+  "license": "MIT",
+  "repository": "https://github.com/noctalia-dev/noctalia-plugins",
+  "description": "Rotating fumo based on CPU usage.",
+  "tags": ["Bar", "Desktop", "Panel", "Fun"],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "desktopWidget": "DesktopWidget.qml",
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "minimumThreshold": 10,
+      "gifPath": "assets/fumo.gif"
+    }
+  }
+}
