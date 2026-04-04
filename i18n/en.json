@@ -1,28 +1,6 @@
 {
   "panel": {
-    "cpuLabel": "CPU: {usage}%",
     "title": "Fumo Rotate"
-  },
-  "settings": {
-    "currentThreshold": "Current threshold: {value}%",
-    "gifPath": {
-      "description": "Path to the GIF animation file",
-      "label": "GIF Path"
-    },
-    "hideBackground": {
-      "description": "Hide the background of the desktop widget",
-      "label": "Hide Background"
-    },
-    "minimumThreshold": {
-      "description": "CPU usage must be above this percentage for fumo to rotate",
-      "label": "Minimum CPU Threshold"
-    },
-    "preview": {
-      "description": "Current fumo animation",
-      "label": "Preview"
-    },
-    "resetDefaults": "Reset to Defaults",
-    "title": "Fumo Rotate Settings"
   },
   "tooltip": {
     "idle": "Fumo is idle",

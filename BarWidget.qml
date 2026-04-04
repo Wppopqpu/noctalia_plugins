@@ -1,6 +1,5 @@
 import QtQuick
 import Quickshell
-import Quickshell.Io
 import qs.Commons
 import qs.Modules.Bar.Extras
 import qs.Services.UI
@@ -21,8 +20,6 @@ Item {
     readonly property string barPosition: Settings.getBarPositionForScreen(screenName)
     readonly property bool barIsVertical: barPosition === "left" || barPosition === "right"
     readonly property real capsuleHeight: Style.getCapsuleHeightForScreen(screenName)
-
-    property url currentGifSource
 
     property string tooltipText: {
         if (!pluginApi) return "";
@@ -56,18 +53,12 @@ Item {
     implicitHeight: contentHeight
 
     readonly property bool isRotating: root.pluginApi?.mainInstance?.isRotating ?? false
-    readonly property string gifPath: root.pluginApi?.mainInstance?.gifPath || "assets/fumo.gif"
 
     function openPanel() {
         if (pluginApi) {
-            var result = pluginApi.openPanel(root.screen);
-            Logger.i("FumoRotate", "OpenPanel result:", result);
-        } else {
-            Logger.e("FumoRotate", "PluginAPI is null");
+            pluginApi.openPanel(root.screen);
         }
     }
-
-    currentGifSource: gifPath ? Qt.resolvedUrl(gifPath) : ""
 
     Rectangle {
         id: visualCapsule
@@ -96,7 +87,7 @@ Item {
             width: Style.toOdd(visualCapsule.width - Style.marginXS * 2)
             height: width
 
-            source: root.currentGifSource
+            source: Qt.resolvedUrl("assets/fumo.gif")
             sourceSize: Qt.size(width, height)
             fillMode: Image.PreserveAspectFit
             smooth: true
@@ -129,8 +120,6 @@ Item {
             if (root.tooltipText) {
                 TooltipService.hide();
             }
-
-            Logger.i("FumoRotate", "Clicked! API:", !!pluginApi, "Screen:", root.screen ? root.screen.name : "null");
 
             if (!root.enabled && !root.allowClickWhenDisabled) {
                 return;

@@ -6,8 +6,7 @@ Item {
 
     property var pluginApi: null
 
-    readonly property real minimumThreshold: pluginApi?.pluginSettings?.minimumThreshold || 10
-    readonly property string gifPath: pluginApi?.pluginSettings?.gifPath || "assets/fumo.gif"
+    readonly property real minimumThreshold: 10
 
     property real cpuUsage: SystemStatService.cpuUsage
     readonly property bool isRotating: cpuUsage >= minimumThreshold

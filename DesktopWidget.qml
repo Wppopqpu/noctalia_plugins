@@ -13,13 +13,12 @@ DraggableDesktopWidget {
     implicitWidth: 200
     implicitHeight: 80
 
-    showBackground: !(root.pluginApi?.mainInstance?.hideBackground ?? false)
+    showBackground: true
 
     readonly property bool isRotating: root.pluginApi?.mainInstance?.isRotating ?? false
-    readonly property string gifPath: root.pluginApi?.mainInstance?.gifPath || "assets/fumo.gif"
     readonly property real cpuUsage: root.pluginApi?.mainInstance?.cpuUsage ?? 0
 
-    property url currentGifSource: gifPath ? Qt.resolvedUrl(gifPath) : ""
+    property url currentGifSource: Qt.resolvedUrl("assets/fumo.gif")
 
     RowLayout {
         anchors.fill: parent

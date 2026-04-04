@@ -39,14 +39,11 @@ Item {
                     Layout.alignment: Qt.AlignHCenter
 
                     readonly property bool isRotating: root.pluginApi?.mainInstance?.isRotating ?? false
-                    readonly property string gifPath: root.pluginApi?.mainInstance?.gifPath || "assets/fumo.gif"
-
-                    property url currentGifSource: gifPath ? Qt.resolvedUrl(gifPath) : ""
 
                     AnimatedImage {
                         id: bigFumoImage
                         anchors.fill: parent
-                        source: bigFumoItem.currentGifSource
+                        source: Qt.resolvedUrl("assets/fumo.gif")
                         fillMode: Image.PreserveAspectFit
                         smooth: true
                         mipmap: true
@@ -56,7 +53,7 @@ Item {
 
                 Text {
                     Layout.alignment: Qt.AlignHCenter
-                    text: (pluginApi?.tr("panel.cpuLabel") || "CPU: {usage}%").replace("{usage}", Math.round(root.pluginApi?.mainInstance?.cpuUsage ?? 0))
+                    text: "CPU: " + Math.round(root.pluginApi?.mainInstance?.cpuUsage ?? 0) + "%"
                     font.pointSize: Style.fontSizeXL
                     font.weight: Font.Bold
                     color: Settings.data.colorSchemes.darkMode ? "white" : "black"

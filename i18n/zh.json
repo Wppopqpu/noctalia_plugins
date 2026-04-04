@@ -1,0 +1,9 @@
+{
+  "panel": {
+    "title": "Fumo 旋转"
+  },
+  "tooltip": {
+    "idle": "Fumo 空闲中",
+    "rotating": "Fumo 旋转中"
+  }
+}

@@ -20,8 +20,7 @@
   },
   "metadata": {
     "defaultSettings": {
-      "minimumThreshold": 10,
-      "gifPath": "assets/fumo.gif"
+      "minimumThreshold": 10
     }
   }
 }
