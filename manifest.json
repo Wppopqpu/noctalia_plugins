@@ -3,7 +3,7 @@
   "name": "Fumo Rotate",
   "version": "1.0.0",
   "minNoctaliaVersion": "3.6.0",
-  "author": "MannuVilasara",
+  "author": "Wppopqpu",
   "license": "MIT",
   "repository": "https://github.com/noctalia-dev/noctalia-plugins",
   "description": "Rotating fumo based on CPU usage.",
