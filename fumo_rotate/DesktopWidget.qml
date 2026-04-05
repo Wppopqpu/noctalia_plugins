@@ -18,20 +18,7 @@ DraggableDesktopWidget {
 	readonly property bool isRotating: pluginApi?.mainInstance?.isRotating ?? false
 	readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
 
-	property int currentFrame: 0
-	readonly property int totalFrames: 215
-
-	Timer {
-		id: animationTimer
-		interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) * (root.currentFrame % 2 == 0?3:4) / 3 : 1000
-		running: true
-		repeat: true
-		onTriggered: {
-			if (root.isRotating) {
-				root.currentFrame = (root.currentFrame + 1) % root.totalFrames
-			}
-		}
-	}
+	readonly property int currentFrame: pluginApi?.mainInstance?.currentFrame
 
 	RowLayout {
 		anchors.fill: parent
