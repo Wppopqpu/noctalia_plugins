@@ -23,7 +23,8 @@ Item {
 
 	property string tooltipText: {
 		if (!pluginApi) return "";
-		return root.isRotating ? (pluginApi.tr("tooltip.rotating") || "Rotating") : (pluginApi.tr("tooltip.idle") || "Idle");
+		// return root.isRotating ? (pluginApi.tr("tooltip.rotating") || "Rotating") : (pluginApi.tr("tooltip.idle") || "Idle");
+		return pluginApi.tr("tooltip.rotating")
 	}
 
 	property string tooltipDirection: BarService.getTooltipDirection()
