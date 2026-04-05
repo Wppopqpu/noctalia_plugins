@@ -1,9 +1,9 @@
 {
-  "panel": {
-    "title": "⑨Rotate"
-  },
-  "tooltip": {
-    "idle": "⑨ is idle",
-    "rotating": "⑨ is rotating"
-  }
+	"panel": {
+		"title": "⑨Rotate"
+	},
+	"tooltip": {
+		"idle": "⑨ is idle",
+		"rotating": "⑨ is rotating"
+	}
 }

@@ -4,13 +4,13 @@ import qs.Widgets
 import qs.Commons
 
 ColumnLayout {
-    id: root
+	id: root
 
-    property var pluginApi: null
+	property var pluginApi: null
 
-    spacing: Style.marginM
+	spacing: Style.marginM
 
-    NLabel {
-        label: pluginApi.tr("panel.title")
-    }
+	NLabel {
+		label: pluginApi.tr("panel.title")
+	}
 }
