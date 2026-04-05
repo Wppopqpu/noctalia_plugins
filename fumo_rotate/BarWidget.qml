@@ -56,11 +56,11 @@ Item {
     readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
 
     property int currentFrame: 0
-    readonly property int totalFrames: 216
+    readonly property int totalFrames: 215
 
     Timer {
         id: animationTimer
-        interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) : 1000
+        interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) * (root.currentFrame % 2 == 0?3:4) / 7 : 1000
         running: true
         repeat: true
         onTriggered: {
