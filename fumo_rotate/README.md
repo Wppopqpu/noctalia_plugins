@@ -1,11 +1,11 @@
 # Fumo rotate
 
 a simple noctalia shell plugin that shows a rotating ⑨.
-Rotating speed is determined byb cpu usage
+Rotating speed is determined by cpu usage
 
 # Caveats
 
-This plugin is basically a production of AI.
+This plugin is basically a product of AI.
 It works for me, but there are still many things to do.
 
 # Credits
