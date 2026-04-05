@@ -60,7 +60,7 @@ Item {
 
 	Timer {
 		id: animationTimer
-		interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) * (root.currentFrame % 2 == 0?3:4) / 7 : 1000
+		interval: root.isRotating ? Math.max(10, 70 - root.cpuUsage * 0.6) * (root.currentFrame % 2 == 0?3:4) / 3 : 1000
 		running: true
 		repeat: true
 		onTriggered: {

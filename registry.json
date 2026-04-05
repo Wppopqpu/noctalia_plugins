@@ -4,14 +4,14 @@
 		{
 			"id": "fumo_rotate",
 			"name": "Fumo Rotate",
-			"version": "1.0.1",
+			"version": "1.0.2",
 			"official": false,
 			"author": "Wppopqpu",
 			"license": "MIT",
 			"repository": "https://github.com/wppopqpu/noctalia_plugins",
 			"description": "Rotating fumo based on CPU usage.",
 			"tags": ["Bar", "Desktop", "Panel", "Fun"],
-			"lastUpdated": "2026-0405T14:51:00+08:00"
+			"lastUpdated": "2026-0405T15:17:00+08:00"
 		}
 	]
 
