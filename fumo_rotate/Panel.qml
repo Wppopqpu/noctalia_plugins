@@ -18,8 +18,6 @@ Item {
 	readonly property bool isRotating: pluginApi?.mainInstance?.isRotating ?? false
 	readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
 
-	readonly property int currentFrame: pluginApi?.mainInstance?.currentFrame
-
 	Rectangle {
 		id: panelContainer
 		anchors.fill: parent
@@ -50,7 +48,7 @@ Item {
 						fillMode: Image.PreserveAspectFit
 						smooth: true
 						mipmap: true
-						currentFrame: root.currentFrame
+						speed: 0.03 * root.cpuUsage
 					}
 				}
 

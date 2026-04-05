@@ -56,9 +56,6 @@ Item {
 	readonly property bool isRotating: pluginApi?.mainInstance?.isRotating ?? false
 	readonly property real cpuUsage: pluginApi?.mainInstance?.cpuUsage ?? 0
 
-	readonly property int currentFrame: pluginApi?.mainInstance?.currentFrame
-
-
 	function openPanel() {
 		if (pluginApi) {
 			pluginApi.openPanel(root.screen);
@@ -97,7 +94,7 @@ Item {
 			fillMode: Image.PreserveAspectFit
 			smooth: true
 			mipmap: false
-			currentFrame: root.currentFrame
+			speed: 0.03 * root.cpuUsage
 		}
 	}
 
