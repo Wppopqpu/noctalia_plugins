@@ -6,7 +6,7 @@ Item {
 
 	property var pluginApi: null
 
-	readonly property real minimumThreshold: 10
+	// readonly property real minimumThreshold: 10
 
 	property real cpuUsage: SystemStatService.cpuUsage
 	// readonly property bool isRotating: cpuUsage >= minimumThreshold
@@ -16,7 +16,6 @@ Item {
 
 
 	Timer {
-		id: animationTimer
 		interval: (70 - root.cpuUsage * 0.6) * (root.currentFrame % 2 == 0?3:4) / 3
 		running: true
 		repeat: true
